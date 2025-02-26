@@ -136,22 +136,22 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="borrowButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Borrow">
+            <Button fx:id="borrowButton" mnemonicParsing="false" onAction="#onBorrowButtonClick" style="-fx-background-color: black; -fx-text-fill: white;" text="Borrow">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="reserveButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Reserve">
+            <Button fx:id="reserveButton" mnemonicParsing="false" onAction="#onReserveButtonClick" style="-fx-background-color: black; -fx-text-fill: white;" text="Reserve">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="returnButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Return">
+            <Button fx:id="returnButton" mnemonicParsing="false" onAction="#onReturnButtonClick" style="-fx-background-color: black; -fx-text-fill: white;" text="Return">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="removeButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Remove">
+            <Button fx:id="removeButton" mnemonicParsing="false" onAction="#onRemoveButtonClick" style="-fx-background-color: black; -fx-text-fill: white;" text="Remove">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
