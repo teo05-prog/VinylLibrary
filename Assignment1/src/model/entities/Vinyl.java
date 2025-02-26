@@ -1,6 +1,8 @@
 package model.entities;
 
-public class Vinyl
+import java.io.Serializable;
+
+public class Vinyl implements Serializable
 {
   private String title;
   private String artist;
