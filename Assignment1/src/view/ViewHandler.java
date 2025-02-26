@@ -38,7 +38,7 @@ public class ViewHandler
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/front/Front.fxml"));
     Scene scene = new Scene(loader.load());
     frontController = loader.getController();
-    frontController.init(this, frontVM, scene); // Pass scene to init
+    frontController.init(this, frontVM, scene);
     primaryStage.setScene(scene);
   }
 

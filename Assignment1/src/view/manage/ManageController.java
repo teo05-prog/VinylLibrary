@@ -15,6 +15,7 @@ public class ManageController
   @FXML private Label artistLabel;
   @FXML private Label yearLabel;
   @FXML private Label stateLabel;
+  @FXML private Label errorLabel;
 
   @FXML private TextField titleField;
   @FXML private TextField artistField;
@@ -69,7 +70,7 @@ public class ManageController
   {
     if (selectedVinyl != null)
     {
-      selectedVinyl.setState(new Borrowed());
+      selectedVinyl.borrowVinyl();
       updateUI();
     }
   }
@@ -78,7 +79,7 @@ public class ManageController
   {
     if (selectedVinyl != null)
     {
-      selectedVinyl.setState(new Reserved());
+      selectedVinyl.reserveVinyl();
       updateUI();
     }
   }
@@ -87,7 +88,7 @@ public class ManageController
   {
     if (selectedVinyl != null)
     {
-      selectedVinyl.setState(new Available());
+      selectedVinyl.returnVinyl();
       updateUI();
     }
   }
@@ -96,8 +97,8 @@ public class ManageController
   {
     if (selectedVinyl != null)
     {
-      selectedVinyl.setState(new Removed()); // Update state
-      updateUI(); // Refresh the UI
+      selectedVinyl.removeVinyl();
+      updateUI();
     }
   }
 }

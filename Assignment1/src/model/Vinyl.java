@@ -8,21 +8,21 @@ public class Vinyl implements Serializable
   private String title;
   private String artist;
   private String year;
-  private State vinylState;
-  private String state = "Available";
-  private boolean isRemoved;
-  private PropertyChangeSupport propertyChangeSupport;
+  private State state;
+  private boolean markedForRemoval;
   private String reserveName;
   private String borrowName;
 
   public Vinyl(String title, String artist, String year)
   {
-    propertyChangeSupport = new PropertyChangeSupport(this);
     this.title = title;
     this.artist = artist;
     this.year = year;
-    this.isRemoved = false;
+    this.state = new Available();
+    this.markedForRemoval = false;
     setState(new Available());
+    this.reserveName = null;
+    this.borrowName = null;
   }
 
   public String getTitle()
@@ -40,9 +40,19 @@ public class Vinyl implements Serializable
     return year;
   }
 
-  public String getState()
+  public State getState()
   {
     return state;
+  }
+
+  public boolean isMarkedForRemoval()
+  {
+    return markedForRemoval;
+  }
+
+  public void markForRemoval()
+  {
+    this.markedForRemoval = true;
   }
 
   public String getReserveName()
@@ -55,29 +65,19 @@ public class Vinyl implements Serializable
     return borrowName;
   }
 
-  public void setReserveName(String reserveName)
-  {
-    this.reserveName = reserveName;
+  public void setReservedBy(String reservedBy) {
+    this.reserveName = reservedBy;
   }
 
-  public void setBorrowName(String borrowName)
-  {
-    this.borrowName = borrowName;
+  public void setBorrowedBy(String borrowedBy) {
+    this.borrowName = borrowedBy;
   }
 
-  public State getVinylState()
+  public void setState(State state)
   {
-    return vinylState;
-  }
-
-  public void setState(State vinylState)
-  {
-    if (!isRemoved)
+    if (!markedForRemoval)
     {
-      String oldState = String.valueOf(this.state);
-      this.vinylState = vinylState;
-      this.state = vinylState.getStateName();
-      propertyChangeSupport.firePropertyChange("state", oldState, this.state);
+      this.state = state;
     }
     else
     {
@@ -87,29 +87,29 @@ public class Vinyl implements Serializable
 
   public synchronized void borrowVinyl()
   {
-    vinylState.toBorrow(this);
+    state.toBorrow(this);
   }
 
   public synchronized void reserveVinyl()
   {
-    String oldState = vinylState.getStateName();
-    vinylState.toReserve(this);
+    String oldState = state.getStateName();
+    state.toReserve(this);
   }
 
   public synchronized void returnVinyl()
   {
-    String oldState = vinylState.getStateName();
-    vinylState.toReturn(this);
+    String oldState = state.getStateName();
+    state.toReturn(this);
   }
 
   public synchronized void removeVinyl()
   {
-    String oldState = vinylState.getStateName();
-    vinylState.toRemove(this);
+    String oldState = state.getStateName();
+    state.toRemove(this);
   }
 
   @Override public String toString()
   {
-    return title + ", " + artist + ", " + year + ", " + vinylState.status();
+    return title + ", " + artist + ", " + year + ", " + state;
   }
 }

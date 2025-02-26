@@ -37,10 +37,8 @@ public class FrontController
     this.frontVM = frontVM;
     this.scene = scene;
 
-    List<Vinyl> vinyls = frontVM.getVinyls();
-    System.out.println("Adding " + vinyls.size() + " vinyls to table");
+    List<Vinyl> vinyls = frontVM.getVinylList();
     vinylTable.getItems().addAll(vinyls);
-    System.out.println("Table now has " + vinylTable.getItems().size() + " items");
   }
 
   @FXML private void onManageClick()

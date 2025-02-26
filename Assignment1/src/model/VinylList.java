@@ -63,21 +63,21 @@ public class VinylList implements Serializable
     }
   }
 
-  public synchronized void borrow(Vinyl vinyl, Customer customer)
+  public synchronized void borrow(Vinyl vinyl, String borrowedBy)
   {
     if (vinyl != null)
     {
-      vinyl.setBorrowName(customer.getName());
+      vinyl.setBorrowedBy(borrowedBy);
       vinyl.borrowVinyl();
       support.firePropertyChange("vinylBorrowed", null, vinyl);
     }
   }
 
-  public synchronized void reserve(Vinyl vinyl, Customer customer)
+  public synchronized void reserve(Vinyl vinyl, String reservedBy)
   {
     if (vinyl != null)
     {
-      vinyl.setReserveName(customer.getName());
+      vinyl.setReservedBy(reservedBy);
       vinyl.reserveVinyl();
       support.firePropertyChange("vinylReserved", null, vinyl);
     }
