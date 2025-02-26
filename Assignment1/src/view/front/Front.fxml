@@ -10,7 +10,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.front.FrontController">
    <children>
       <MenuBar>
@@ -40,10 +39,11 @@
             <Button mnemonicParsing="false" prefHeight="25.0" text="Add" />
             <Button mnemonicParsing="false" text="Book" />
             <Button mnemonicParsing="false" text="Reserve" />
+            <Button mnemonicParsing="false" text="Return" />
           <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="Remove" textAlignment="CENTER" />
         </buttons>
          <padding>
-            <Insets right="80.0" />
+            <Insets right="40.0" />
          </padding>
       </ButtonBar>
    </children>
