@@ -26,21 +26,21 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TableView prefHeight="295.0" prefWidth="500.0">
+      <TableView fx:id="vinylTable" prefHeight="295.0" prefWidth="500.0">
         <columns>
-            <TableColumn prefWidth="167.99996948242188" text="Title" />
-            <TableColumn prefWidth="131.3333740234375" text="Artist" />
-            <TableColumn prefWidth="66.66668701171875" text="Year" />
-            <TableColumn prefWidth="133.33331298828125" text="Status" />
+            <TableColumn fx:id="titleColumn" prefWidth="167.99996948242188" text="Title" />
+            <TableColumn fx:id="artistColumn" prefWidth="131.3333740234375" text="Artist" />
+            <TableColumn fx:id="yearColumn" prefWidth="66.66668701171875" text="Year" />
+            <TableColumn fx:id="statusColumn" prefWidth="133.33331298828125" text="Status" />
         </columns>
       </TableView>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
-            <Button mnemonicParsing="false" prefHeight="25.0" text="Add" />
-            <Button mnemonicParsing="false" text="Book" />
-            <Button mnemonicParsing="false" text="Reserve" />
-            <Button mnemonicParsing="false" text="Return" />
-          <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="Remove" textAlignment="CENTER" />
+            <Button fx:id="addButton" mnemonicParsing="false" prefHeight="25.0" text="Add" />
+            <Button fx:id="bookButton" mnemonicParsing="false" text="Book" />
+            <Button fx:id="reserveButton" mnemonicParsing="false" text="Reserve" />
+            <Button fx:id="returnButton" mnemonicParsing="false" text="Return" />
+          <Button fx:id="removeButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="30.0" text="Remove" textAlignment="CENTER" />
         </buttons>
          <padding>
             <Insets right="40.0" />
