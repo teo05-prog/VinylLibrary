@@ -1,5 +1,5 @@
 package viewmodel;
 
-public class LoginVM
+public class FrontVM
 {
 }
