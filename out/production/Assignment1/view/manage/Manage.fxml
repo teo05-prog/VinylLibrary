@@ -36,7 +36,7 @@
       </HBox>
       <HBox maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="500.0">
          <children>
-            <Label text="Title" textAlignment="CENTER">
+            <Label fx:id="titleLabel" text="Title" textAlignment="CENTER">
                <font>
                   <Font name="Agency FB" size="24.0" />
                </font>
@@ -44,7 +44,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </Label>
-            <TextField prefHeight="35.0" prefWidth="350.0">
+            <TextField fx:id="titleField" prefHeight="35.0" prefWidth="350.0">
                <HBox.margin>
                   <Insets left="25.0" />
                </HBox.margin>
@@ -59,7 +59,7 @@
       </HBox>
       <HBox minHeight="50.0" prefHeight="50.0" prefWidth="500.0">
          <children>
-            <Label text="Artist">
+            <Label fx:id="artistLabel" text="Artist">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -67,7 +67,7 @@
                   <Font name="Agency FB" size="24.0" />
                </font>
             </Label>
-            <TextField prefHeight="35.0" prefWidth="350.0">
+            <TextField fx:id="artistField" prefHeight="35.0" prefWidth="350.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -82,7 +82,7 @@
       </HBox>
       <HBox maxHeight="50.0" minHeight="50.0" prefHeight="62.0" prefWidth="500.0">
          <children>
-            <Label text="Year">
+            <Label fx:id="yearLabel" text="Year">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -90,7 +90,7 @@
                   <Font name="Agency FB" size="24.0" />
                </font>
             </Label>
-            <TextField prefWidth="350.0">
+            <TextField fx:id="yearField" prefWidth="350.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -108,7 +108,7 @@
       </HBox>
       <HBox maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="500.0">
          <children>
-            <Label text="Status">
+            <Label fx:id="stateLabel" text="Status">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -116,7 +116,7 @@
                   <Font name="Agency FB" size="24.0" />
                </font>
             </Label>
-            <TextField prefWidth="350.0">
+            <TextField fx:id="stateField" prefWidth="350.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -131,7 +131,7 @@
       </HBox>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button fx:id="cancelButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Cancel">
+          <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onReturnToFrontViewClick" style="-fx-background-color: black; -fx-text-fill: white;" text="Cancel">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>

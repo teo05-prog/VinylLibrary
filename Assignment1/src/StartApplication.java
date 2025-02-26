@@ -1,12 +1,30 @@
+import javafx.application.Application;
+import javafx.stage.Stage;
 import model.Vinyl;
+import model.VinylList;
+import view.ViewHandler;
+import viewmodel.FrontVM;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
-public class StartApplication
+public class StartApplication extends Application
 {
   public static void main(String[] args)
   {
-    ArrayList<Vinyl> vinyls = new ArrayList<Vinyl>();
+    launch(args);
+  }
+
+  @Override public void start(Stage primaryStage) throws IOException
+  {
+    VinylList vinylList = createSampleVinylList();
+    FrontVM frontVM = new FrontVM(vinylList);
+    ViewHandler viewHandler = new ViewHandler(primaryStage, vinylList, frontVM);
+    viewHandler.start();
+  }
+
+  private VinylList createSampleVinylList()
+  {
+    VinylList vinylList = new VinylList();
 
     String[] titles = new String[] {"Thriller", "Abbey - Road",
         "Greatest Hits - 2", "Purple Rain", "Master of Puppets",
@@ -22,7 +40,9 @@ public class StartApplication
     {
       Vinyl newVinyl = new Vinyl(titles[i], artists[i], years[i]);
       System.out.println(newVinyl);
-      vinyls.add(newVinyl);
+      vinylList.addVinyl(newVinyl);
     }
+
+    return vinylList;
   }
 }

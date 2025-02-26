@@ -2,41 +2,54 @@ package view.front;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Vinyl;
 import view.ViewHandler;
+import viewmodel.FrontVM;
+
+import java.util.List;
 
 public class FrontController
 {
-  private Scene scene;
-  private ViewHandler viewHandler;
-
   @FXML private TableView<Vinyl> vinylTable;
   @FXML private TableColumn<Vinyl, String> titleColumn;
   @FXML private TableColumn<Vinyl, String> artistColumn;
   @FXML private TableColumn<Vinyl, String> yearColumn;
   @FXML private TableColumn<Vinyl, String> statusColumn;
 
-  @FXML private Button manageButton;
-
-  private TableView.TableViewSelectionModel<Vinyl> defaultSelectionModel;
+  private ViewHandler viewHandler;
+  private FrontVM frontVM;
+  private Scene scene;
 
   @FXML private void initialize()
   {
-    setupTableColumns();
-    defaultSelectionModel = vinylTable.getSelectionModel();
-  }
-
-  private void setupTableColumns()
-  {
-    titleColumn.setCellValueFactory(
-        new PropertyValueFactory<>("title"));
+    titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
     artistColumn.setCellValueFactory(new PropertyValueFactory<>("artist"));
     yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
-    statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+    statusColumn.setCellValueFactory(new PropertyValueFactory<>("state"));
+  }
+
+  public void init(ViewHandler viewHandler, FrontVM frontVM, Scene scene)
+  {
+    this.viewHandler = viewHandler;
+    this.frontVM = frontVM;
+    this.scene = scene;
+
+    List<Vinyl> vinyls = frontVM.getVinyls();
+    System.out.println("Adding " + vinyls.size() + " vinyls to table");
+    vinylTable.getItems().addAll(vinyls);
+    System.out.println("Table now has " + vinylTable.getItems().size() + " items");
+  }
+
+  @FXML private void onManageClick()
+  {
+    Vinyl selectedVinyl = vinylTable.getSelectionModel().getSelectedItem();
+    if (selectedVinyl != null)
+    {
+      viewHandler.openManageView(selectedVinyl);
+    }
   }
 
   public Scene getScene()
@@ -44,13 +57,8 @@ public class FrontController
     return scene;
   }
 
-  public void init(ViewHandler viewHandler, Scene scene) {
-    this.viewHandler = viewHandler;
-    this.scene = scene;
-  }
-
-  @FXML
-  private void onManageButtonClick() {
-    viewHandler.openManageView();
+  public void updateVinylTable()
+  {
+    vinylTable.refresh();
   }
 }

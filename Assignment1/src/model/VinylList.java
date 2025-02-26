@@ -28,6 +28,11 @@ public class VinylList implements Serializable
     }
   }
 
+  public ArrayList<Vinyl> getVinyls()
+  {
+    return vinyls;
+  }
+
   public void addListener(PropertyChangeListener listener)
   {
     support.addPropertyChangeListener(listener);
@@ -114,5 +119,10 @@ public class VinylList implements Serializable
     }
     VinylList other = (VinylList) obj;
     return vinyls.equals(other.vinyls);
+  }
+
+  public void addVinyl(Vinyl vinyl)
+  {
+    vinyls.add(vinyl);
   }
 }
