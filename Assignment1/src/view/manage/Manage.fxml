@@ -12,7 +12,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" style="-fx-border-width: 5; -fx-border-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.manage.ManageController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
@@ -132,27 +131,27 @@
       </HBox>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
-          <Button mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Cancel">
+          <Button fx:id="cancelButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Cancel">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Borrow">
+            <Button fx:id="borrowButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Borrow">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Reserve">
+            <Button fx:id="reserveButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Reserve">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Return">
+            <Button fx:id="returnButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Return">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Remove">
+            <Button fx:id="removeButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Remove">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
