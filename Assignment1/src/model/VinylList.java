@@ -1,18 +1,22 @@
 package model;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class VinylList implements Serializable
 {
   private ArrayList<Vinyl> vinyls;
+  private PropertyChangeSupport support;
 
   public VinylList()
   {
     vinyls = new ArrayList<Vinyl>();
+    support = new PropertyChangeSupport(this);
   }
 
-  public Vinyl get(int index)
+  public synchronized Vinyl get(int index)
   {
     if (index < vinyls.size())
     {
@@ -24,19 +28,72 @@ public class VinylList implements Serializable
     }
   }
 
+  public void addListener(PropertyChangeListener listener)
+  {
+    support.addPropertyChangeListener(listener);
+  }
+
+  public void removeListener(PropertyChangeListener listener)
+  {
+    support.removePropertyChangeListener(listener);
+  }
+
   public int size()
   {
     return vinyls.size();
   }
 
-  public void add(Vinyl vinyl)
+  public synchronized void add(Vinyl vinyl)
   {
     vinyls.add(vinyl);
+    support.firePropertyChange("vinylAdded", null, vinyl);
   }
 
-  public void remove(Vinyl vinyl)
+  public synchronized void remove(Vinyl vinyl)
   {
-    vinyls.remove(vinyl);
+    boolean removed = vinyls.remove(vinyl);
+    if (removed)
+    {
+      support.firePropertyChange("vinylRemoved", vinyl, null);
+    }
+  }
+
+  public synchronized void borrow(Vinyl vinyl, Customer customer)
+  {
+    if (vinyl != null)
+    {
+      vinyl.setBorrowName(customer.getName());
+      vinyl.borrowVinyl();
+      support.firePropertyChange("vinylBorrowed", null, vinyl);
+    }
+  }
+
+  public synchronized void reserve(Vinyl vinyl, Customer customer)
+  {
+    if (vinyl != null)
+    {
+      vinyl.setReserveName(customer.getName());
+      vinyl.reserveVinyl();
+      support.firePropertyChange("vinylReserved", null, vinyl);
+    }
+  }
+
+  public synchronized void returnVinyl(Vinyl vinyl)
+  {
+    if (vinyl != null)
+    {
+      vinyl.returnVinyl();
+      support.firePropertyChange("vinylReturned", null, vinyl);
+    }
+  }
+
+  public synchronized void markForRemoval(Vinyl vinyl)
+  {
+    if (vinyl != null)
+    {
+      vinyl.removeVinyl();
+      support.firePropertyChange("vinylMarkedForRemoval", null, vinyl);
+    }
   }
 
   public String toString()

@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Customer;
 import model.Vinyl;
 import view.ViewHandler;
 
@@ -21,11 +20,7 @@ public class FrontController
   @FXML private TableColumn<Vinyl, String> yearColumn;
   @FXML private TableColumn<Vinyl, String> statusColumn;
 
-  @FXML private Button addButton;
-  @FXML private Button bookButton;
-  @FXML private Button reserveButton;
-  @FXML private Button returnButton;
-  @FXML private Button removeButton;
+  @FXML private Button manageButton;
 
   private TableView.TableViewSelectionModel<Vinyl> defaultSelectionModel;
 
@@ -47,5 +42,15 @@ public class FrontController
   public Scene getScene()
   {
     return scene;
+  }
+
+  public void init(ViewHandler viewHandler, Scene scene) {
+    this.viewHandler = viewHandler;
+    this.scene = scene;
+  }
+
+  @FXML
+  private void onManageButtonClick() {
+    viewHandler.openManageView();
   }
 }

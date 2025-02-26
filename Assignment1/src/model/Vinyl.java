@@ -7,7 +7,7 @@ public class Vinyl implements Serializable
 {
   private String title;
   private String artist;
-  private int year;
+  private String year;
   private State vinylState;
   private String state = "Available";
   private boolean isRemoved;
@@ -35,7 +35,7 @@ public class Vinyl implements Serializable
     return artist;
   }
 
-  public int getYear()
+  public String getYear()
   {
     return year;
   }
