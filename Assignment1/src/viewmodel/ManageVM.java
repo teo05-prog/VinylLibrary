@@ -13,7 +13,7 @@ import model.Model;
 import model.ModelListener;
 import model.Vinyl;
 
-public class FrontVM implements ModelListener
+public class ManageVM implements ModelListener
 {
   private Model model;
   private ViewState viewState;
@@ -23,7 +23,7 @@ public class FrontVM implements ModelListener
 
   public static final String VINYL_LIST_PROPERTY = "vinylList";
 
-  public FrontVM(Model model, ViewState viewState)
+  public ManageVM(Model model, ViewState viewState)
   {
     this.model = model;
     this.viewState = viewState;
