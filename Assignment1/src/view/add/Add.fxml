@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="222.0" prefWidth="263.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add a new vinyl" textAlignment="CENTER" wrappingWidth="264.00897216796875">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Text>
+      <HBox prefHeight="83.0" prefWidth="301.0">
+         <children>
+            <ImageView fitHeight="92.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/vinyl_logo.png" />
+               </image></ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add a new vinyl" textAlignment="CENTER" wrappingWidth="214.00897073745728">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
       <Label text="Title:">
          <padding>
             <Insets left="5.0" />
          </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </Label>
       <TextField prefHeight="26.0" prefWidth="0.0">
          <VBox.margin>
@@ -31,6 +38,9 @@
          <padding>
             <Insets left="5.0" />
          </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </Label>
       <TextField>
          <VBox.margin>
@@ -41,6 +51,9 @@
          <padding>
             <Insets left="5.0" />
          </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </Label>
       <TextField>
          <VBox.margin>
@@ -49,14 +62,14 @@
       </TextField>
       <ButtonBar prefHeight="40.0" prefWidth="250.0">
         <buttons>
-            <Button mnemonicParsing="false" text="Button" />
-          <Button minWidth="50.0" mnemonicParsing="false" prefHeight="26.0" text="Button" />
+            <Button mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" text="Button" />
+          <Button minWidth="50.0" mnemonicParsing="false" style="-fx-background-color: black; -fx-text-fill: white;" prefHeight="26.0" text="Button" />
         </buttons>
          <VBox.margin>
             <Insets />
          </VBox.margin>
          <padding>
-            <Insets right="50.0" />
+            <Insets right="68.0" />
          </padding>
       </ButtonBar>
    </children>
