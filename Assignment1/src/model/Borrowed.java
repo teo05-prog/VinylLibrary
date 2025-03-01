@@ -19,6 +19,6 @@ public class Borrowed extends State
 
   @Override public void toReserve(Vinyl vinyl)
   {
-    vinyl.setState(new BorrowedAndReserved());
+    vinyl.setState(new BorrowedAndReserved(vinyl.getReserveName()));
   }
 }

@@ -24,6 +24,6 @@ public class Available extends State
 
   @Override public void toReserve(Vinyl vinyl)
   {
-    vinyl.setState(new Reserved());
+    vinyl.setState(new Reserved(vinyl.getReserveName()));
   }
 }

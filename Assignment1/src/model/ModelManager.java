@@ -96,6 +96,7 @@ public class ModelManager implements Model
   {
     synchronized (vinyl)
     {
+      vinyl.setReservedBy(userName);
       vinyl.reserveVinyl();
       notifyListenersVinylUpdated(vinyl);
     }
