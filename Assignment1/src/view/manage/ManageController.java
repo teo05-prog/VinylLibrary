@@ -69,7 +69,7 @@ public class ManageController
   {
     if (selectedVinyl != null)
     {
-      selectedVinyl.setState(new Borrowed());
+      selectedVinyl.getState().toBorrow(selectedVinyl);
       updateUI();
     }
   }
@@ -78,7 +78,7 @@ public class ManageController
   {
     if (selectedVinyl != null)
     {
-      selectedVinyl.setState(new Reserved());
+      selectedVinyl.getState().toReserve(selectedVinyl);
       updateUI();
     }
   }
@@ -87,7 +87,7 @@ public class ManageController
   {
     if (selectedVinyl != null)
     {
-      selectedVinyl.setState(new Available());
+      selectedVinyl.getState().toReturn(selectedVinyl);
       updateUI();
     }
   }
@@ -96,8 +96,8 @@ public class ManageController
   {
     if (selectedVinyl != null)
     {
-      selectedVinyl.setState(new Removed()); // Update state
-      updateUI(); // Refresh the UI
+      selectedVinyl.getState().toRemove(selectedVinyl);
+      updateUI();
     }
   }
 }

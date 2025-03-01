@@ -77,6 +77,12 @@ public class UserSimulator implements Runnable
     int vinylIndex = random.nextInt(vinyls.size());
     Vinyl vinyl = vinyls.get(vinylIndex);
 
+    if (vinyl.getState().getStateName().equals("Removed")) {
+      System.out.println(userName + " cannot perform action on vinyl: " +
+          vinyl.getTitle() + " - Vinyl is removed");
+      return;
+    }
+
     int action = random.nextInt(3);
 
     System.out.println(userName + " attempting action " + actionToString(action)
