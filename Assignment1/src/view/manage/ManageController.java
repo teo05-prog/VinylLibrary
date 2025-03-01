@@ -32,7 +32,8 @@ public class ManageController
   private Vinyl selectedVinyl;
   private FrontVM frontVM;
 
-  public void init(ViewHandler viewHandler, Scene scene, FrontVM frontVM) {
+  public void init(ViewHandler viewHandler, Scene scene, FrontVM frontVM)
+  {
     this.viewHandler = viewHandler;
     this.scene = scene;
     this.frontVM = frontVM;

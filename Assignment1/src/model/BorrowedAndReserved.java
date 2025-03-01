@@ -4,13 +4,14 @@ public class BorrowedAndReserved extends State
 {
   private String reservedBy;
 
-  public BorrowedAndReserved(String reservedBy) {
+  public BorrowedAndReserved(String reservedBy)
+  {
     this.reservedBy = reservedBy;
   }
 
   @Override public String getStateName()
   {
-    return "Borrowed and Reserved";  // No name shown in display
+    return "Borrowed and Reserved";
   }
 
   @Override public void toReturn(Vinyl vinyl)
@@ -23,7 +24,8 @@ public class BorrowedAndReserved extends State
     return "borrowed and reserved";
   }
 
-  public String getReservedBy() {
+  public String getReservedBy()
+  {
     return reservedBy;
   }
 }

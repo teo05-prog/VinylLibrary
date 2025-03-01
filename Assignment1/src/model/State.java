@@ -26,8 +26,7 @@ public abstract class State
 
   public abstract String status();
 
-  @Override
-  public String toString()
+  @Override public String toString()
   {
     return getStateName();
   }

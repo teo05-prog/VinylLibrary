@@ -35,7 +35,8 @@ public class ViewHandler
 
   private void loadFrontView() throws IOException
   {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/front/Front.fxml"));
+    FXMLLoader loader = new FXMLLoader(
+        getClass().getResource("/view/front/Front.fxml"));
     Scene scene = new Scene(loader.load());
     frontController = loader.getController();
     frontController.init(this, frontVM, scene);

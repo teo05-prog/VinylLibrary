@@ -65,11 +65,13 @@ public class Vinyl implements Serializable
     return borrowName;
   }
 
-  public void setReservedBy(String reservedBy) {
+  public void setReservedBy(String reservedBy)
+  {
     this.reserveName = reservedBy;
   }
 
-  public void setBorrowedBy(String borrowedBy) {
+  public void setBorrowedBy(String borrowedBy)
+  {
     this.borrowName = borrowedBy;
   }
 

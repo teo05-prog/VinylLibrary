@@ -78,8 +78,7 @@ public class ManageVM implements ModelListener
 
   public List<Vinyl> getVinylList()
   {
-    return new ArrayList<>(
-        vinylList);
+    return new ArrayList<>(vinylList);
   }
 
   public StringProperty errorLabelProperty()
